@@ -55,12 +55,12 @@
 #include <Qt3DRender/QCameraLens>
 #include <Qt3DCore/QTransform>
 #include <Qt3DCore/QAspectEngine>
-#include <Qt3DCore/QGeometry>
-#include <Qt3DCore/QAttribute>
-#include <Qt3DCore/QBuffer>
 
 #include <Qt3DInput/QInputAspect>
 
+#include <Qt3DRender/QBuffer>
+#include <Qt3DRender/QAttribute>
+#include <Qt3DRender/QGeometry>
 #include <Qt3DRender/QRenderStateSet>
 #include <Qt3DRender/QRenderAspect>
 #include <Qt3DExtras/QForwardRenderer>
@@ -105,10 +105,10 @@ int main(int argc, char* argv[])
 
     // Custom Mesh (TetraHedron)
     Qt3DRender::QGeometryRenderer *customMeshRenderer = new Qt3DRender::QGeometryRenderer;
-    Qt3DCore::QGeometry *customGeometry = new Qt3DCore::QGeometry(customMeshRenderer);
+    Qt3DRender::QGeometry *customGeometry = new Qt3DRender::QGeometry(customMeshRenderer);
 
-    Qt3DCore::QBuffer *vertexDataBuffer = new Qt3DCore::QBuffer(customGeometry);
-    Qt3DCore::QBuffer *indexDataBuffer = new Qt3DCore::QBuffer(customGeometry);
+    Qt3DRender::QBuffer *vertexDataBuffer = new Qt3DRender::QBuffer(customGeometry);
+    Qt3DRender::QBuffer *indexDataBuffer = new Qt3DRender::QBuffer(customGeometry);
 
     // vec3 for position
     // vec3 for colors
@@ -189,40 +189,40 @@ int main(int argc, char* argv[])
     indexDataBuffer->setData(indexBufferData);
 
     // Attributes
-    Qt3DCore::QAttribute *positionAttribute = new Qt3DCore::QAttribute();
-    positionAttribute->setAttributeType(Qt3DCore::QAttribute::VertexAttribute);
+    Qt3DRender::QAttribute *positionAttribute = new Qt3DRender::QAttribute();
+    positionAttribute->setAttributeType(Qt3DRender::QAttribute::VertexAttribute);
     positionAttribute->setBuffer(vertexDataBuffer);
-    positionAttribute->setVertexBaseType(Qt3DCore::QAttribute::Float);
+    positionAttribute->setVertexBaseType(Qt3DRender::QAttribute::Float);
     positionAttribute->setVertexSize(3);
     positionAttribute->setByteOffset(0);
     positionAttribute->setByteStride(9 * sizeof(float));
     positionAttribute->setCount(4);
-    positionAttribute->setName(Qt3DCore::QAttribute::defaultPositionAttributeName());
+    positionAttribute->setName(Qt3DRender::QAttribute::defaultPositionAttributeName());
 
-    Qt3DCore::QAttribute *normalAttribute = new Qt3DCore::QAttribute();
-    normalAttribute->setAttributeType(Qt3DCore::QAttribute::VertexAttribute);
+    Qt3DRender::QAttribute *normalAttribute = new Qt3DRender::QAttribute();
+    normalAttribute->setAttributeType(Qt3DRender::QAttribute::VertexAttribute);
     normalAttribute->setBuffer(vertexDataBuffer);
-    normalAttribute->setVertexBaseType(Qt3DCore::QAttribute::Float);
+    normalAttribute->setVertexBaseType(Qt3DRender::QAttribute::Float);
     normalAttribute->setVertexSize(3);
     normalAttribute->setByteOffset(3 * sizeof(float));
     normalAttribute->setByteStride(9 * sizeof(float));
     normalAttribute->setCount(4);
-    normalAttribute->setName(Qt3DCore::QAttribute::defaultNormalAttributeName());
+    normalAttribute->setName(Qt3DRender::QAttribute::defaultNormalAttributeName());
 
-    Qt3DCore::QAttribute *colorAttribute = new Qt3DCore::QAttribute();
-    colorAttribute->setAttributeType(Qt3DCore::QAttribute::VertexAttribute);
+    Qt3DRender::QAttribute *colorAttribute = new Qt3DRender::QAttribute();
+    colorAttribute->setAttributeType(Qt3DRender::QAttribute::VertexAttribute);
     colorAttribute->setBuffer(vertexDataBuffer);
-    colorAttribute->setVertexBaseType(Qt3DCore::QAttribute::Float);
+    colorAttribute->setVertexBaseType(Qt3DRender::QAttribute::Float);
     colorAttribute->setVertexSize(3);
     colorAttribute->setByteOffset(6 * sizeof(float));
     colorAttribute->setByteStride(9 * sizeof(float));
     colorAttribute->setCount(4);
-    colorAttribute->setName(Qt3DCore::QAttribute::defaultColorAttributeName());
+    colorAttribute->setName(Qt3DRender::QAttribute::defaultColorAttributeName());
 
-    Qt3DCore::QAttribute *indexAttribute = new Qt3DCore::QAttribute();
-    indexAttribute->setAttributeType(Qt3DCore::QAttribute::IndexAttribute);
+    Qt3DRender::QAttribute *indexAttribute = new Qt3DRender::QAttribute();
+    indexAttribute->setAttributeType(Qt3DRender::QAttribute::IndexAttribute);
     indexAttribute->setBuffer(indexDataBuffer);
-    indexAttribute->setVertexBaseType(Qt3DCore::QAttribute::UnsignedShort);
+    indexAttribute->setVertexBaseType(Qt3DRender::QAttribute::UnsignedShort);
     indexAttribute->setVertexSize(1);
     indexAttribute->setByteOffset(0);
     indexAttribute->setByteStride(0);

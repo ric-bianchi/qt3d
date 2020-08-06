@@ -50,6 +50,7 @@
 
 #include <QGuiApplication>
 #include <QQuickView>
+#include <QSGRendererInterface>
 
 int main(int argc, char **argv)
 {
@@ -69,8 +70,6 @@ int main(int argc, char **argv)
     }
     QGuiApplication app(argc, argv);
 
-    // Force OpenGL backend
-    QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGLRhi);
     QQuickView view;
 
     view.resize(1024, 768);
